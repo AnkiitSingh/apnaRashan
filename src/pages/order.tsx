@@ -101,7 +101,7 @@ class Order extends Component<any, any> {
                                     <IonGrid>
                                         <IonRow className="ion-text-center">
                                             <IonCol>
-                                                <button className="orderCancle" onClick={cancleOrder}>Cancle</button>
+                                                <button className="orderCancle" onClick={cancleOrder}>Cancel</button>
                                             </IonCol>
                                             <IonCol>
                                                 <Link to={orderMore()}><button className="orderMore">Details</button></Link>
