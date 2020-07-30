@@ -1,0 +1,63 @@
+.orderHead{
+    font-size: 2.2vh;
+    letter-spacing: 2px;
+    color: black;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    background-color: #edeff9;
+}
+.orderData{
+    letter-spacing: 2px;
+    font-size: 2vh;
+    color: black;
+    padding-bottom: 1vh;
+    padding-top: 1vh;
+}
+.orderData1{
+    letter-spacing: 2px;
+    font-size: 2vh;
+    color: black;
+    padding-bottom: 1vh;
+    padding-top: 1vh;
+    background-color: #e5e3e3;
+}
+.cartImage{
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+.orderFoot1{
+    font-size: 2.2vh;
+    letter-spacing: 2px;
+    color: black;
+    padding-top: 2vh;
+    background-color: #edeff9;
+    padding-bottom: 2vh;
+}
+.orderCancle{
+    height:5vh;
+    width: 15vh;
+    color:white;
+    background-color: #5e72e4;
+    border-radius: 1vh;
+    letter-spacing: 2px;
+    font-size: 2vh;
+}
+.orderMore{
+    height:5vh;
+    width: 15vh;
+    color:white;
+    background-color: #10274c;
+    border-radius: 1vh;
+    letter-spacing: 2px;
+    font-size: 2vh;
+}
+.paddingOrder{
+    padding-top: 40vh;
+    letter-spacing: 2px;
+    font-size: 2vh;
+    background-color: #edeff9;
+    height: 100vh;
+}
+.order-img{
+    height: 20vh;
+}

@@ -1,0 +1,66 @@
+.background1{
+    background-image: url('register.png') !important;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    justify-content: center;
+}
+.avatar{
+    border-radius: 10;
+    height: 90px;
+    width: 90px;
+}
+.header{
+    letter-spacing: 3;
+    font-size: 18px;
+    padding-bottom:2vh !important;
+    border-bottom: 1px #d0d5f2 solid;
+}
+.back{
+    background-color: #f4f5fb;
+}
+.padding-top{
+    padding-top:20%;
+}
+.padding-top2{
+    padding-top: 10%;
+}
+.pad{
+    padding-top: 10%;
+    padding-bottom: 5%;
+}
+.pad2{
+    padding-top: 10%;
+    padding-left: 5vh;
+    padding-right: 5vh;
+}
+.foot{
+    padding-top: 1%;
+}
+.input{
+    min-width: 42vh;
+    height: 5vh;
+    border:0.5px solid #d4d9f7;
+    border-radius: 1vh;
+}
+.error{
+    color: white;
+    background-color: black;
+}
+.logButton{
+    padding-left: 8vh;
+    padding-right: 8vh;
+    color: white;
+    background-color: #5e72e4;
+    height: 5vh;
+    border-radius: 1vh;
+    font-size: 2vh;
+    letter-spacing: 0.2vh;
+}
+.inputArea{
+    height: 10vh;
+    min-width: 42vh;
+    border:0.5px solid #d4d9f7;
+    border-radius: 1vh;
+}

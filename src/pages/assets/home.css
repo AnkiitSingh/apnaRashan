@@ -1,0 +1,71 @@
+.home-content{
+    padding: 0px !important;
+    margin: 0px !important;
+}
+.categoryImage{
+    height: 22vh;
+    width: 100vh;
+    border-radius: 0vh;
+}
+.catg-sep{
+    border-left: 1px solid #a5a5a5;
+    border-bottom: 1px solid #a5a5a5;
+    border-radius: 1vh;
+}
+.name{
+    font-size: 2.5vh;
+    letter-spacing: 2px;
+    padding-bottom: 0px;
+    text-decoration: none;
+}
+.desc{
+    padding: 0px !important;
+}
+.btn{
+    padding-top: 7px;
+}
+.menuHead{
+    font-size: 2.5vh;
+    padding-left:1vh;
+    color: #0f274c;
+}
+.categoryButton{
+    background-color: red;
+    color: white;
+    letter-spacing: 1px;
+    height: 5vh;
+    width: 15vh;
+    border-radius: 1vh;
+}
+.body{
+    background-color: #edeff9;
+    height: 100vh;
+}
+.noPad{
+    padding: 0px !important;
+}
+.navIcon{
+    padding: 1vh;
+}
+.menuBtn{
+    color: #0f274c;    
+}
+.Icon{
+    height: 10vh;
+    color: #0f274c;
+}
+.toolHead{
+    font-size: 2.3vh;
+    padding-bottom: 2vh;
+    letter-spacing: 0.2vh;
+    color: #0f274c;
+}
+.LoadPad{
+    padding-top: 30vh;
+    letter-spacing: 2px;
+    font-size: 2.2vh;
+    font-weight: bold;
+    padding-bottom: 2vh;
+    background-color: #edeff9;
+    height: 100vh;
+}

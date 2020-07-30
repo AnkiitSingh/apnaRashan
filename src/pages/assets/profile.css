@@ -1,0 +1,97 @@
+.background4{
+    background-image: url('bg.png');
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    justify-content: center;
+}
+.menuBtn1{
+    color: white;
+}
+.menuHead1{
+    color: white;
+    padding: 1vh;
+    font-size: 2.5vh;
+    letter-spacing: 2px;
+}
+.Icon1{
+    color: white;
+}
+.pad3{
+    padding-top: 5vh;
+}
+.profile{
+    padding-top: 0vh;
+    background-color: white;
+    margin-left: 2vh;
+    margin-right: 2vh;
+    border-radius: 1vh;
+}
+.profile1{
+    padding-top:30%;
+}
+.proPic{
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+}
+.email{
+    font-size: 3.5vh;
+    letter-spacing: 2px;
+    padding-bottom: 1vh;
+}
+.address{
+    letter-spacing: 2px;
+    padding-bottom: 5vh;
+    margin-right: 5vh;
+    margin-left: 5vh;
+}
+.phoneNo{
+    padding-top:5vh;
+    margin-left: 5vh;
+    letter-spacing: 1px;
+    font-size: 2.2vh;
+}
+.address1{
+    padding-top: 2vh;
+    margin-left: 5vh;
+    margin-right: 5vh;
+    letter-spacing: 1px;
+    font-size: 2.2vh;
+    padding-bottom: 5vh;
+    border-bottom:1px solid #d3cdcd;
+}
+.profBtn{
+    padding-bottom: 5vh;
+    border-bottom:1px solid #d3cdcd;
+    margin-left: 5vh;
+    margin-right: 5vh;
+}
+.proBtn{
+    height: 5vh;
+    font-size: 2vh;
+    letter-spacing: 2px;
+    width: 17vh;
+    border-radius: 1vh;
+    background-color: #5e72e4;
+    color: white;
+}
+.proBtn1{
+    height: 5vh;
+    font-size: 2vh;
+    letter-spacing: 2px;
+    width: 17vh;
+    border-radius: 1vh;
+    background-color: #10274c;
+    color: white;
+}
+.footSpace{
+    padding-bottom: 18vh;
+}
+.footSpace2{
+    padding-bottom: 40vh;
+}
+.logCheck{
+    letter-spacing: 1px;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+}

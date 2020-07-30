@@ -1,0 +1,135 @@
+@font-face {
+    font-family: 'MuseoModerno';
+    src: local('MuseoModerno'), url(../fonts/font1.ttf) format('truetype');
+  }
+@font-face {
+    font-family: 'Balsamiq Sans';
+    src: local('Balsamiq Sans'), url(../fonts/font2.ttf) format('truetype');
+  }
+.home-content{
+    padding: 0px !important;
+    margin: 0px !important;
+}
+.pad-top{
+    padding-top: 60%;
+    padding-bottom: 5%;
+}
+.products{
+    border-bottom: 1px solid #a5a5a5;
+    background-color: white !important;
+}
+.prod-desc{
+    padding-left: 3vh;
+}
+.heading{
+    font-size: 20px;
+    font-weight: bolder;
+    letter-spacing: 2;
+    font-family: 'MuseoModerno';
+}
+.productImage{
+    height: 17vh;
+    border-radius: 1vh;
+}
+.padder{
+    padding-top: 2vh;
+}
+.name{
+    letter-spacing:2px;
+    padding-top: 1.5vh;
+    padding-bottom: 1vh;
+    padding-left: 0px !important;
+    color: black;
+    font-size: 2.3vh;
+    font-family: 'Balsamiq Sans';
+}
+.desc{
+    letter-spacing: 1px;
+    padding: 5px;
+    font-size: 1.7vh;
+}
+.price{
+    padding-top: 2vh;
+    letter-spacing: 1px;
+    font-size: 2.2vh;
+    font-family: 'MuseoModerno';
+    color: green;
+    padding-bottom: 0.5vh;
+}
+.Icon{
+    height: 10vh;
+    color: #0f274c;
+}
+.toolHead{
+    font-size: 2.3vh;
+    padding-bottom: 2vh;
+    letter-spacing: 0.2vh;
+    color: #0f274c;
+}
+.noPad{
+    padding: 0px !important;
+}
+.deleteBtn{
+    height: 5vh;
+    width: 15vh;
+    color:white;
+    background-color: #5e72e4;
+    border-radius: 1vh;
+    letter-spacing: 1px;
+    font-size: 2vh;
+}
+.prodBtn{
+    height: 5vh;
+    width: 5vh;
+    border-radius: 10vh;
+    color:white;
+    background-color: #5e72e4;
+}
+.orderBtn{
+    height: 5vh;
+    width: 20vh;
+    border-radius: 1vh;
+    color:white;
+    background-color: #10274c;
+    letter-spacing: 2px;
+    font-size: 2vh;
+}
+.cartLogin{
+    height: 5vh;
+    width: 20vh;
+    letter-spacing: 2px;
+    color: white;
+    background-color: #5e72e4;
+    border-radius: 1vh;
+}
+
+.amount{
+    padding-top: 1.8vh;
+    letter-spacing: 2px;
+    font-size: 2.3vh;
+    font-weight: bold;
+}
+.orderFoot{
+    background-color: #edeff9;
+}
+.paddingCart{
+    padding-bottom: 50vh;
+}
+.cartAddress{
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    letter-spacing: 2px;
+    font-size: 2vh;
+}
+.cartTextArea{
+    height: 10vh;
+    width: 40vh;
+    border-radius: 1vh;
+    background-color: #edeff9;
+}
+.cartCard{
+    background-color: #edeff9 !important;
+}
+.cart-sec{
+    padding-top: 2vh;
+}

@@ -1,0 +1,67 @@
+
+@font-face {
+    font-family: 'MuseoModerno';
+    src: local('MuseoModerno'), url(../fonts/font1.ttf) format('truetype');
+  }
+@font-face {
+    font-family: 'Balsamiq Sans';
+    src: local('Balsamiq Sans'), url(../fonts/font2.ttf) format('truetype');
+  }
+.background{
+    background-image: url('bg.png');
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    justify-content: center;
+}
+.title{
+    text-align: center;
+    padding-bottom: 0px;
+}
+.align{
+    padding-top: 20%;
+    justify-content: center;
+    align-content: center;
+}
+.image{
+    height: 165px;
+    width: 200px;
+    border-radius: 10%;
+}
+.landing-text{
+    color:white;
+    font-size: 35px;
+    font-weight: bolder;
+    padding-left: 12%;
+    padding-top: 30%;
+    font-family: 'MuseoModerno';
+    letter-spacing: 3px;
+}
+.landing-text2{
+    color:white;
+    font-size: 40px;
+    font-weight: bolder;
+    padding-left: 11%;
+    padding-bottom: 2%;
+    font-style: 'MyFont';
+    font-family: 'MuseoModerno';
+    letter-spacing: 3px;
+
+}
+.landing-desc{
+    color:white;
+    font-size: 15px;
+    padding-left: 12%;
+    padding-bottom: 15%;
+    font-family: 'Balsamiq Sans';
+    letter-spacing: 2px;
+}
+.btn-txt{
+    font-size: 2.5vh;
+    width:40vh;
+    height: 7vh;
+    border-radius: 1vh;
+    letter-spacing: 2px;
+    background-color: #edeff9;
+}

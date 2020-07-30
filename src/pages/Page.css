@@ -1,0 +1,31 @@
+.navIcon{
+    padding-right:3%;
+    font-size: large;
+}
+.Icon{
+    margin-right: 3%;
+    margin-left: 5%;
+    height: 30px;
+}
+.IconPadding{
+    margin-left: 10px;
+    margin-right: 20px;
+}
+.header{
+    text-align: center;
+    padding-bottom: 10%;
+    letter-spacing:2px;
+}
+.defaultBtn{
+    background-color: #4e399c;
+}
+.padding{
+    padding-top: 25%;
+}
+.pad{
+    padding-top: 5%;
+}
+.foot{
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
