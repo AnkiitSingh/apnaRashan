@@ -1,4 +1,4 @@
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonIcon, IonPage, IonTitle, IonToolbar, IonCard, IonCardContent, IonGrid, IonRow, IonCol, IonFooter, IonText, IonLabel } from '@ionic/react';
+import { IonButtons, IonContent, IonHeader, IonRadioGroup, IonRadio, IonMenuButton, IonIcon, IonPage, IonTitle, IonToolbar, IonCard, IonCardContent, IonGrid, IonRow, IonCol, IonFooter, IonText, IonLabel } from '@ionic/react';
 import React, { Component } from 'react';
 import './Page.css';
 import { cart as bag, person } from 'ionicons/icons';
@@ -6,7 +6,7 @@ import { API } from '../Api'
 import { Link } from 'react-router-dom';
 import './assets/products.css';
 import cartOrder from "../auth/orderHelper"
-
+import icon from "../icon.png"
 class Cart extends Component<any, any> {
   constructor(props: any) {
     super(props);
@@ -16,12 +16,17 @@ class Cart extends Component<any, any> {
       address: String,
       transaction_id: "Cash on Delivery",
       items: [],
-      cart: []
+      cart: [],
+      paymentType: ""
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handlePayment = this.handleChange.bind(this);
   }
   handleChange(event: any) {
     this.setState({ address: event.target.value });
+  }
+  handlePayment(event: any) {
+    this.setState({ paymentType: event.target.value });
   }
   componentDidMount() {
     const { items } = this.state;
@@ -41,7 +46,7 @@ class Cart extends Component<any, any> {
     }
   }
   render() {
-    const { cart, items, isLoaded } = this.state;
+    const { cart, items, isLoaded, paymentType, address } = this.state;
     let arr: any = [];
     let amount = 0;
     let products: any = [];
@@ -53,13 +58,69 @@ class Cart extends Component<any, any> {
           .then(res => this.setState({ isLoaded: true, cart: [...arr] }))
       }
     }
+    function loadScript(src: any) {
+      return new Promise((resolve) => {
+        const script = document.createElement('script')
+        script.src = src
+        script.onload = () => {
+          resolve(true)
+        }
+        script.onerror = () => {
+          resolve(false)
+        }
+        document.body.appendChild(script)
+      })
+    }
+    async function displayRazorpay() {
+      const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
+      if (!res) {
+        alert('Razorpay SDK failed to load. Are you online?')
+        return
+      }
+      var options = {
+        "key": "rzp_test_MwvUUjNN2CExKX", // Enter the Key ID generated from the Dashboard
+        "amount": (amount * 100),
+        "currency": "INR",
+        "name": "Apna Rashan",
+        "description": "Test Transaction",
+        "image": { icon },
+        "handler": function (response: any) {
+          const local: any = localStorage.getItem("jwt");
+          const val: any = JSON.parse(local);
+          const user = val.user._id;
+          let transaction_id = response.razorpay_payment_id
+          alert(response.razorpay_payment_id)
+          cartOrder({ products, transaction_id, amount, address, user })
+            .then((data: any) => {
+              if (data.error) {
+                console.log(data.error);
+              }
+            })
+            .then(() => alert("Product Ordered"))
+            .then(() => { window.location.reload(false); })
+            .catch((data: any) => {
+              console.log(data.error);
+            });
+        }
+      };
+      const _window = window as any
+      const paymentObject = new _window.Razorpay(options)
+      paymentObject.open()
+    }
+
     const onSubmit = (event: any) => {
       const local: any = localStorage.getItem("jwt");
       const val: any = JSON.parse(local);
       const user = val.user._id;
       const { transaction_id, address } = this.state;
-      if (address.length <= 10) {
+      if (!paymentType || paymentType === "") {
+        return alert("Please select a payment method")
+      }
+      else if (address.length <= 10) {
         return alert("Please Enter Full Address")
+      }
+      else if (paymentType === "payOnline") {
+        displayRazorpay()
       }
       else {
         event.preventDefault();
@@ -133,10 +194,32 @@ class Cart extends Component<any, any> {
             </IonCard>
           })}
           <div className="ion-text-center cartAddress">
+            <IonRadioGroup value={paymentType} onIonChange={e => this.setState({ paymentType: e.detail.value })}>
+              <IonLabel>Payment Method<IonText color="warning">*</IonText></IonLabel>
+              <br />
+              <br />
+              <IonGrid>
+                <IonRow>
+                  <IonCol>
+                    <IonRadio value="COD" /> &nbsp;
+                    <IonText>COD</IonText>
+                  </IonCol>
+                  <IonCol>
+                    <IonRadio value="payOnline" />&nbsp;
+                       <IonLabel>Pay Online</IonLabel>
+                  </IonCol>
+                </IonRow>
+              </IonGrid>
+
+
+            </IonRadioGroup>
+            <br />
+            <br />
             <IonLabel>Address<IonText color="warning">*</IonText></IonLabel>
             <br />
             <br />
             <textarea value={this.state.value} onChange={this.handleChange} className="cartTextArea ion-text-center" placeholder="Enter Delivery Address"></textarea>
+            <br />
           </div>
         </IonContent>
       )

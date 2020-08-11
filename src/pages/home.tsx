@@ -4,6 +4,7 @@ import './assets/home.css';
 import { Link } from 'react-router-dom';
 import { cart, person } from 'ionicons/icons';
 import { API } from '../Api';
+
 class Home extends Component<any, any>{
   constructor(props: any) {
     super(props);
