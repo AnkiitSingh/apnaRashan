@@ -35,12 +35,23 @@ class Home extends Component<any, any>{
         .then(res3 => res3.json())
         .then(res3 => this.setState({ secondLoad: true, data2: res3 }))
     }
+    const offerImg = () => {
+      if (offer == null || offer.length === 0) {
+        return (
+          <div></div>
+        )
+      }
+      else {
+        return (
+          <img src={`${API}/product/photo/${offer[0]._id}`} alt="offer" className="offer" />
+        )
+      }
+    }
     const homeBody = () => {
       return (
         <div className="home-content">
           <button className="offer-name">
-            <img src={`${API}/product/photo/${offer[0]._id}`} alt="offer" className="offer">
-            </img>
+            {offerImg()}
           </button>
           <IonGrid className="body home-content">
             <IonRow>
