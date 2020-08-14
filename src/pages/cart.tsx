@@ -89,7 +89,6 @@ class Cart extends Component<any, any> {
           const val: any = JSON.parse(local);
           const user = val.user._id;
           let transaction_id = response.razorpay_payment_id
-          alert(response.razorpay_payment_id)
           cartOrder({ products, transaction_id, amount, address, user })
             .then((data: any) => {
               if (data.error) {

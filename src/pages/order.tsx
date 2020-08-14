@@ -43,7 +43,7 @@ class Order extends Component<any, any> {
             if (localStorage.getItem("jwt") !== null) {
                 return (
                     <IonContent>
-                        {items.map((items: any, index: any) => {
+                        {items.slice(0).reverse().map((items: any, index: any) => {
                             const local: any = localStorage.getItem("jwt");
                             const user: any = JSON.parse(local);
                             const cancleOrder = () => {

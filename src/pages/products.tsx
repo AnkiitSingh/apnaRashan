@@ -77,7 +77,7 @@ class Products extends Component<any, any> {
       )
     }
     if (error) {
-      return <div className="ion-text-center">No Products Found{error.message}</div>;
+      return <div className="ion-text-center no-prod">No Products Found{error.message}</div>;
     }
     else {
       return (

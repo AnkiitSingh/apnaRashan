@@ -3,7 +3,7 @@
     margin: 0px !important;
 }
 .categoryImage{
-    height: 23vh;
+    height: 18vh;
     width: 100vh;
     border-radius: 0vh;
 }
@@ -44,6 +44,9 @@
 .noPad{
     padding: 0px !important;
 }
+.home-cat-pad{
+    padding: 1vh;
+}
 .navIcon{
     padding: 1vh;
 }
@@ -68,4 +71,29 @@
     padding-bottom: 2vh;
     background-color: #edeff9;
     height: 100vh;
+}
+.no-prod{
+    padding-top: 45vh;
+}
+.offer{
+    width: 100vh;
+    height: 30vh;
+}
+.offer-name{
+    border: 0px;
+}
+.info{
+    background-color: #34b199;
+    color:white;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+}
+.info-image{
+    height: 5vh;
+}
+.info-text{
+    font-size: 1.9vh;
+    letter-spacing: 1px;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
 }

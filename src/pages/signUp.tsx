@@ -22,28 +22,36 @@ const SignUp = () => {
   };
   const onSubmit = (event: any) => {
     event.preventDefault();
-    setValues({ ...values, error: false });
-    signup({ email, phoneNo, address })
-      .then((data: any) => {
-        if (data.error) {
-          setValues({ ...values, error: data.error, success: false, redirect: true });
-          return Promise.reject("Error")
-        } else {
-          setValues({
-            ...values,
-            email: "",
-            phoneNo: "",
-            address: "",
-            error: false,
-            success: true,
-            redirect: false
-          });
-        }
-      })
-      .then(() => history.push('/page/Login'))
-      .catch((data: any) => {
-        console.log(data.error);
-      });
+    if (email.length <= 10) {
+      alert("Enter a valid email address")
+    }
+    else if (phoneNo.length < 10) {
+      alert("Enter a valid phone No")
+    }
+    else {
+      setValues({ ...values, error: false });
+      signup({ email, phoneNo, address })
+        .then((data: any) => {
+          if (data.error) {
+            setValues({ ...values, error: data.error, success: false, redirect: true });
+            return Promise.reject("Error")
+          } else {
+            setValues({
+              ...values,
+              email: "",
+              phoneNo: "",
+              address: "",
+              error: false,
+              success: true,
+              redirect: false
+            });
+          }
+        })
+        .then(() => history.push('/page/Login'))
+        .catch((data: any) => {
+          console.log(data.error);
+        });
+    }
   };
   const errorMessage = () => {
     return (
