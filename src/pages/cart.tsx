@@ -15,6 +15,7 @@ class Cart extends Component<any, any> {
       isLoaded: false,
       address: String,
       transaction_id: "Cash on Delivery",
+      serverAmount: Number,
       items: [],
       cart: [],
       paymentType: ""
@@ -42,14 +43,17 @@ class Cart extends Component<any, any> {
         .then(res => res.json())
         .then(res => this.setState({ items: res, isLoaded: false }))
         .then(() => { if (items.length === 0) { this.setState({ isLoaded: true }) } })
+        .then(() => fetch(`${API}/user/${id}/amount`).then(res2 => res2.json()).then((res2) => this.setState({ serverAmount: res2.amount }))
+        )
         .catch(() => this.setState({ error: true }));
     }
   }
   render() {
-    const { cart, items, isLoaded, paymentType, address } = this.state;
+    const { cart, items, isLoaded, paymentType, address, serverAmount } = this.state;
     let arr: any = [];
     let amount = 0;
     let products: any = [];
+    let stockOut = 0;
     if (isLoaded === false) {
       for (let i = 0; i < items.length; i++) {
         fetch(`${API}/cart/${items[i]}`)
@@ -78,7 +82,7 @@ class Cart extends Component<any, any> {
         return
       }
       var options = {
-        "key": "rzp_test_MwvUUjNN2CExKX", // Enter the Key ID generated from the Dashboard
+        "key": "rzp_test_3Lts2yoG4PNwtj", // Enter the Key ID generated from the Dashboard
         "amount": (amount * 100),
         "currency": "INR",
         "name": "Apna Rashan",
@@ -114,6 +118,12 @@ class Cart extends Component<any, any> {
       const { transaction_id, address } = this.state;
       if (!paymentType || paymentType === "") {
         return alert("Please select a payment method")
+      }
+      else if (stockOut > 0) {
+        return alert("Please remove out of stock product")
+      }
+      else if (amount !== serverAmount) {
+        return alert("Problem with total amount")
       }
       else if (address.length <= 10) {
         return alert("Please Enter Full Address")
@@ -175,6 +185,14 @@ class Cart extends Component<any, any> {
                 .catch(err => console.log(err));
             }
             amount = amount + cart[index][0].price
+            const stock = () => {
+              if (cart[index][0].status === "StockOut") {
+                stockOut = stockOut + 1
+                return (
+                  <IonCardContent className="name ion-text-center stock-out price">Stock-Out</IonCardContent>
+                )
+              }
+            }
             return <IonCard key={index} className="cartCard">
               <IonGrid >
                 <IonRow>
@@ -182,8 +200,10 @@ class Cart extends Component<any, any> {
                     <img className="productImage" src={`${API}/product/photo/${cart[index][0]._id}`} alt="productImage" />
                   </IonCol>
                   <IonCol>
-                    <IonCardContent className="name ion-text-center">{(cart[index][0].name)}</IonCardContent>
-                    <IonCardContent className="name ion-text-center">&#8377; {(cart[index][0].price)}</IonCardContent>
+                    <div className="name ion-text-center">{(cart[index][0].name)}</div>
+                    <div className="name ion-text-center">&#8377; {(cart[index][0].price)}</div>
+                    <div className="cartQuantity ion-text-center">Quantity - {(cart[index][0].quantity)}</div>
+                    {stock()}
                     <IonCardContent className="ion-text-center">
                       <button onClick={deleteCart} className="deleteBtn">Remove</button>
                     </IonCardContent>

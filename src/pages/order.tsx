@@ -47,7 +47,13 @@ class Order extends Component<any, any> {
                             const local: any = localStorage.getItem("jwt");
                             const user: any = JSON.parse(local);
                             const cancleOrder = () => {
-                                return fetch(`${API}/order/cancle/${user.user._id}/${orderId}`, {
+                                if (items.status === "Cancelled") {
+                                    return alert("Product already cancelled")
+                                }
+                                if (items.status === "Delivered") {
+                                    return alert("Product already Delivered")
+                                }
+                                return fetch(`${API}/order/cancel/${user.user._id}/${orderId}`, {
                                     method: "PUT",
                                     headers: {
                                         Accept: "application/json",
@@ -60,6 +66,26 @@ class Order extends Component<any, any> {
                                     .then(() => alert("Cancle Order !"))
                                     .then(() => { window.location.reload(false); })
                                     .catch(err => console.log(err));
+                            }
+                            const returnOrder = () => {
+                                if (items.status === "Cancelled") {
+                                    return alert("Product already cancelled")
+                                }
+                                else if (items.status === "Delivered") {
+                                    return fetch(`${API}/order/return/${user.user._id}/${orderId}`, {
+                                        method: "PUT",
+                                        headers: {
+                                            Accept: "application/json",
+                                            "Content-Type": "application/json"
+                                        }
+                                    })
+                                        .then(response => {
+                                            return response.json();
+                                        })
+                                        .then(() => alert("Request sent for return"))
+                                        .then(() => { window.location.reload(false); })
+                                        .catch(err => console.log(err));
+                                }
                             }
                             const orderMore = () => {
                                 return (`/page/Order/${orderId}`)
@@ -77,8 +103,26 @@ class Order extends Component<any, any> {
                                 var month = dte.getMonth();
                                 var year = dte.getFullYear()
                             }
-                            catch{
+                            catch {
 
+                            }
+                            const cancelBtn = () => {
+                                if (items.status === "Shipped" || items.status === "Processing" || items.status === "Received") {
+                                    return (
+                                        <IonCol>
+                                            <button className="orderCancle" onClick={cancleOrder}>Cancel</button>
+                                        </IonCol>
+                                    )
+                                }
+                            }
+                            const retutnBtn = () => {
+                                if (items.status === "Delivered") {
+                                    return (
+                                        <IonCol>
+                                            <button className="orderCancle" onClick={returnOrder}>Return</button>
+                                        </IonCol>
+                                    )
+                                }
                             }
                             return (
                                 <IonCard key={index}>
@@ -100,9 +144,8 @@ class Order extends Component<any, any> {
                                     </IonGrid>
                                     <IonGrid>
                                         <IonRow className="ion-text-center">
-                                            <IonCol>
-                                                <button className="orderCancle" onClick={cancleOrder}>Cancel</button>
-                                            </IonCol>
+                                            {cancelBtn()}
+                                            {retutnBtn()}
                                             <IonCol>
                                                 <Link to={orderMore()}><button className="orderMore">Details</button></Link>
                                             </IonCol>

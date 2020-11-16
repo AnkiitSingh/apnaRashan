@@ -16,6 +16,7 @@
     font-size: 2.5vh;
     letter-spacing: 2px;
     padding-bottom: 0px;
+    padding-top: 0px !important;
     text-decoration: none;
 }
 .desc{
@@ -96,4 +97,7 @@
     letter-spacing: 1px;
     padding-top: 1vh;
     padding-bottom: 1vh;
+}
+.stock-out{
+    color:red !important;
 }

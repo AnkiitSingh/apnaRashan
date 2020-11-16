@@ -27,11 +27,28 @@ class Products extends Component<any, any> {
       return (
         <IonContent>
           {items.map((items: any, index: any) => {
+            const price = () => {
+              if (items.status === 'StockOut') {
+                return (
+                  <>
+                    <div className="stock-out price">Stock-Out</div>
+                  </>
+                )
+              }
+              return (
+                <>
+                  <div className="price">&#8377; {items.price}</div>
+                </>
+              )
+            }
             const local: any = localStorage.getItem("jwt");
             const user: any = JSON.parse(local);
             const addToCart = () => {
               if (localStorage.getItem("jwt") === null) {
                 alert("Login to add to Cart")
+              }
+              if (items.status === 'StockOut') {
+                alert("Product out of stock")
               }
               else {
                 return fetch(`${API}/put/${user.user._id}/${items._id}`, {
@@ -63,7 +80,7 @@ class Products extends Component<any, any> {
                       <IonText className="desc">{items.description}</IonText>
                       <br />
                       <div className="quantity">{items.quantity}</div>
-                      <div className="price">&#8377; {items.price}</div>
+                      {price()}
                     </IonCardContent>
                   </IonCol>
                   <IonCol size="2" className="cart-sec text-center">

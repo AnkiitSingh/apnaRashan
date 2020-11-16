@@ -74,6 +74,7 @@ class Home extends Component<any, any>{
                 </IonCol>
               })}
             </IonRow>
+            <br />
             <div className="info ion-text-center">
               <IonGrid>
                 <IonRow>
@@ -94,6 +95,7 @@ class Home extends Component<any, any>{
                 </IonRow>
               </IonGrid>
             </div>
+            <br />
             <IonRow>
               <br />
               {data2.map((data: any, index: any) => {

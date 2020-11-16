@@ -29,3 +29,7 @@
     padding-top: 5%;
     padding-bottom: 5%;
 }
+.cartQuantity {
+    padding-top: 0px !important;
+    letter-spacing: 1px;
+}
