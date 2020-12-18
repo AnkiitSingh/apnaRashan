@@ -16,7 +16,7 @@ class Products extends Component<any, any> {
   }
   componentDidMount() {
     var url = this.props.match.params.category
-    fetch(` ${API}/product/${url}`)
+    fetch(` ${API}/category/product/${url}`)
       .then(res => res.json())
       .then(res => this.setState({ items: res, isLoaded: true }))
       .catch(() => this.setState({ error: true }));
