@@ -15,10 +15,15 @@ class Home extends Component<any, any>{
       offer: [],
       data: [],
       data2: [],
-      secondLoad: false
+      secondLoad: false,
+      screenWidth: window.screen.width
     };
   }
   componentDidMount() {
+    if (this.state.screenWidth > 1000) {
+      alert("This is a mobile friendly web-site. Switch to mobile view and Refresh")
+      alert("Mobile Friendly Web Site. Switch to mobile")
+    }
     fetch(`${API}/category/high`)
       .then(res => res.json())
       .then(res => this.setState({ data: res }))

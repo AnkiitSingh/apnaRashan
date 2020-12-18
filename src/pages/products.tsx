@@ -11,11 +11,16 @@ class Products extends Component<any, any> {
     this.state = {
       error: null,
       isLoaded: false,
-      items: []
+      items: [],
+      screenWidth: window.screen.width
     };
   }
   componentDidMount() {
     var url = this.props.match.params.category
+    if (this.state.screenWidth > 1000) {
+      alert("This is a mobile friendly web-site. Switch to mobile view and Refresh")
+      alert("Mobile Friendly Web Site. Switch to mobile view")
+    }
     fetch(` ${API}/category/product/${url}`)
       .then(res => res.json())
       .then(res => this.setState({ items: res, isLoaded: true }))

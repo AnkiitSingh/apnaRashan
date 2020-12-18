@@ -101,3 +101,11 @@
 .stock-out{
     color:red !important;
 }
+@media only screen and (min-width: 500px) {
+    .categoryImage{
+        width: 40%;
+    }
+    .home-cat-pad{
+        padding: 3vh;
+    }
+  }
