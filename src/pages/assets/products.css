@@ -28,7 +28,7 @@
     font-family: 'MuseoModerno';
 }
 .productImage{
-    height: 17vh;
+    height: 13vh;
     border-radius: 1vh;
 }
 .padder{
@@ -40,7 +40,7 @@
     padding-bottom: 1vh;
     padding-left: 0px !important;
     color: black;
-    font-size: 2.3vh;
+    font-size: 2vh;
     font-family: 'Balsamiq Sans';
 }
 .desc{
@@ -132,4 +132,7 @@
 }
 .cart-sec{
     padding-top: 2vh;
+}
+.load-animation{
+    padding-top: 30vh;
 }

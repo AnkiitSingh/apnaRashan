@@ -1,4 +1,4 @@
-import { IonButtons, IonContent, IonCardTitle, IonGrid, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonIcon, IonCardContent, IonText, IonRow, IonCol } from '@ionic/react';
+import { IonSpinner, IonButtons, IonContent, IonCardTitle, IonGrid, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonIcon, IonCardContent, IonText, IonRow, IonCol } from '@ionic/react';
 import React, { Component } from 'react';
 import { cart, person } from 'ionicons/icons';
 import { Link } from 'react-router-dom';
@@ -78,7 +78,7 @@ class Products extends Component<any, any> {
                     <br />
                   </IonCol>
                   <IonCol className="prod-desc">
-                    <IonCardContent className="noPad">
+                    <IonCardContent className="">
                       <IonCardTitle className="name">
                         {items.name}
                       </IonCardTitle>
@@ -123,7 +123,10 @@ class Products extends Component<any, any> {
           </IonHeader>
           <IonContent>
             {!isLoaded ? (
-              <p className="LoadPad ion-text-center">Loading .......</p>
+              <div className="ion-text-center load-animation">
+                <IonSpinner name="crescent" /> &nbsp;&nbsp;
+                Loading....
+              </div>
             ) : (
                 productBody()
               )}

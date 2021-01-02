@@ -1,4 +1,4 @@
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonCardTitle, IonIcon, IonGrid, IonRow, IonCol } from '@ionic/react';
+import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonCardTitle, IonIcon, IonGrid, IonRow, IonCol, IonSpinner } from '@ionic/react';
 import React, { Component } from 'react';
 import './assets/home.css';
 import { Link } from 'react-router-dom';
@@ -26,31 +26,20 @@ class Home extends Component<any, any>{
     }
     fetch(`${API}/category/high`)
       .then(res => res.json())
-      .then(res => this.setState({ data: res }))
-      .catch(() => this.setState({ error: true }));
-    fetch(`${API}/productOffer`)
-      .then(res => res.json())
-      .then(res => this.setState({ offer: res, isLoaded: true }))
+      .then(res => this.setState({ data: res, isLoaded: true }))
       .catch(() => this.setState({ error: true }));
   }
   render() {
-    const { error, isLoaded, data, offer, secondLoad, data2 } = this.state;
+    const { error, isLoaded, data, secondLoad, data2 } = this.state;
     if (secondLoad === false) {
       fetch(`${API}/category/low`)
         .then(res3 => res3.json())
         .then(res3 => this.setState({ secondLoad: true, data2: res3 }))
     }
     const offerImg = () => {
-      if (offer == null || offer.length === 0) {
-        return (
-          <div></div>
-        )
-      }
-      else {
-        return (
-          <img src={`${API}/product/photo/${offer[0]._id}`} alt="offer" className="offer" />
-        )
-      }
+      return (
+        <img src={`${API}/offerImage`} alt="offer" className="offer" />
+      )
     }
     const homeBody = () => {
       return (
@@ -67,13 +56,21 @@ class Home extends Component<any, any>{
                     `/page/Home/${data._id}`
                   )
                 }
-                return <IonCol size="6" key={index} className="home-cat-pad ion-text-center">
+                const cardColor = () => {
+                  if (index % 2 === 0) {
+                    return "back1"
+                  }
+                  else return "back2"
+                }
+                return <IonCol size="4" key={index} className="ion-text-center remove-pad">
                   <Link to={product()}>
                     <button className="catg-sep">
-                      <IonCardTitle className="name ion-text-center">
-                        {data.name}
-                      </IonCardTitle>
-                      <img className="categoryImage" src={`${API}/category/photo/${data._id}`} alt="categoryPhoto" />
+                      <div className={cardColor()}>
+                        <IonCardTitle className="name ion-text-center">
+                          {data.name}
+                        </IonCardTitle>
+                        <img className="categoryImage" src={`${API}/category/photo/${data._id}`} alt="categoryPhoto" />
+                      </div>
                     </button>
                   </Link>
                 </IonCol>
@@ -109,13 +106,21 @@ class Home extends Component<any, any>{
                     `/page/Home/${data._id}`
                   )
                 }
-                return <IonCol size="6" key={index} className="home-cat-pad ion-text-center">
+                const cardColor = () => {
+                  if (index % 2 === 0) {
+                    return "back2"
+                  }
+                  else return "back1"
+                }
+                return <IonCol size="4" key={index} className="home-cat-pad ion-text-center remove-pad">
                   <Link to={product()}>
                     <button className="catg-sep">
-                      <IonCardTitle className="name ion-text-center">
-                        {data.name}
-                      </IonCardTitle>
-                      <img className="categoryImage" src={`${API}/category/photo/${data._id}`} alt="categoryPhoto" />
+                      <div className={cardColor()}>
+                        <IonCardTitle className="name ion-text-center">
+                          {data.name}
+                        </IonCardTitle>
+                        <img className="categoryImage" src={`${API}/category/photo/${data._id}`} alt="categoryPhoto" />
+                      </div>
                     </button>
                   </Link>
                 </IonCol>
@@ -153,7 +158,11 @@ class Home extends Component<any, any>{
           </IonHeader>
           <IonContent>
             {!isLoaded ? (
-              <p className="LoadPad ion-text-center">Loading .......</p>
+              <div className="ion-text-center load-animation">
+                <IonSpinner name="crescent" /> &nbsp;&nbsp;
+                Loading....
+              </div>
+
             ) : (
                 homeBody()
               )}
