@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { IonPage } from '@ionic/react';
+import { IonCol, IonGrid, IonPage, IonRow } from '@ionic/react';
 import { Link } from 'react-router-dom';
 import { API } from '../Api';
 import avatar from "./assets/avatar.svg";
@@ -60,9 +60,17 @@ class Profile extends Component<any, any> {
                         <div className="email ion-text-center">{data.email}</div>
                         <div className="address ion-text-center">Ranchi, Jharkhand</div>
                         <div className="profBtn ion-text-center">
-                            <Link to="/"><button className="proBtn1" onClick={signout}>Logout</button></Link>
-                            <span>&nbsp; &nbsp;</span>
-                            <Link to="/page/Home"><button className="proBtn">Home</button></Link>
+                            <IonGrid>
+                                <IonRow>
+                                    <IonCol size="6">
+                                        <Link to="/"><button className="proBtn1" onClick={signout}>Logout</button></Link>
+                                    </IonCol>
+                                    <IonCol size="6">
+                                        <Link to="/page/Home"><button className="proBtn">Home</button></Link>
+                                    </IonCol>
+
+                                </IonRow>
+                            </IonGrid>
                         </div>
                         <div className="phoneNo">Mobile No : {data.phoneNo}</div>
                         <div className="address1">Address: {data.address}</div>

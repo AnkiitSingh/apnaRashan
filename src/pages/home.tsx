@@ -159,8 +159,7 @@ class Home extends Component<any, any>{
           <IonContent>
             {!isLoaded ? (
               <div className="ion-text-center load-animation">
-                <IonSpinner name="crescent" /> &nbsp;&nbsp;
-                Loading....
+                <IonSpinner name="crescent" />
               </div>
 
             ) : (

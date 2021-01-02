@@ -33,3 +33,13 @@
     padding-top: 0px !important;
     letter-spacing: 1px;
 }
+.orderQuantity{
+    padding-left: 2vh;
+    padding-right: 2vh;
+    background-color: #4a4e5f;
+    border: 1px solid #363b4e;
+    border-radius: 1vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    color: white;
+}

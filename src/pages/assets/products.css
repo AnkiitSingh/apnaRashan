@@ -71,7 +71,7 @@
 }
 .deleteBtn{
     height: 5vh;
-    width: 15vh;
+    width: 5vh;
     color:white;
     background-color: #5e72e4;
     border-radius: 1vh;
@@ -134,5 +134,5 @@
     padding-top: 2vh;
 }
 .load-animation{
-    padding-top: 30vh;
+    padding-top: 35vh;
 }

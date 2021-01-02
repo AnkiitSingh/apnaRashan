@@ -1,4 +1,4 @@
-import { IonButtons, IonContent, IonHeader, IonRadioGroup, IonRadio, IonMenuButton, IonIcon, IonPage, IonTitle, IonToolbar, IonCard, IonCardContent, IonGrid, IonRow, IonCol, IonFooter, IonText, IonLabel } from '@ionic/react';
+import { IonSpinner, IonButtons, IonContent, IonHeader, IonRadioGroup, IonRadio, IonMenuButton, IonIcon, IonPage, IonTitle, IonToolbar, IonCard, IonCardContent, IonGrid, IonRow, IonCol, IonFooter, IonText, IonLabel } from '@ionic/react';
 import React, { Component } from 'react';
 import './Page.css';
 import { cart as bag, person } from 'ionicons/icons';
@@ -56,9 +56,10 @@ class Cart extends Component<any, any> {
     let stockOut = 0;
     if (isLoaded === false) {
       for (let i = 0; i < items.length; i++) {
-        fetch(`${API}/cart/${items[i]}`)
+        fetch(`${API}/cart/${items[i].id}`)
           .then(res => res.json())
           .then(res => arr.push(res))
+          .then(() => arr[arr.length - 1].quantity = items[i].Quantity)
           .then(res => this.setState({ isLoaded: true, cart: [...arr] }))
       }
     }
@@ -170,7 +171,7 @@ class Cart extends Component<any, any> {
             const local: any = localStorage.getItem("jwt");
             const user: any = JSON.parse(local);
             const deleteCart = () => {
-              return fetch(`${API}/cart/${user.user._id}/${index}`, {
+              return fetch(`${API}/cart/${user.user._id}/${cart[index][0]._id}`, {
                 method: "PATCH",
                 headers: {
                   Accept: "application/json",
@@ -184,7 +185,22 @@ class Cart extends Component<any, any> {
                 .then(() => { window.location.reload(false); })
                 .catch(err => console.log(err));
             }
-            amount = amount + cart[index][0].price
+            const addCart = () => {
+              return fetch(`${API}/put/${user.user._id}/${cart[index][0]._id}`, {
+                method: "PATCH",
+                headers: {
+                  Accept: "application/json",
+                  "Content-Type": "application/json"
+                }
+              })
+                .then(response => {
+                  return response.json();
+                })
+                .then(() => alert("Added to cart"))
+                .then(() => { window.location.reload(false); })
+                .catch(err => console.log(err));
+            }
+            amount = amount + (cart[index][0].price * cart[index].quantity)
             const stock = () => {
               if (cart[index][0].status === "StockOut") {
                 stockOut = stockOut + 1
@@ -205,7 +221,9 @@ class Cart extends Component<any, any> {
                     <div className="cartQuantity ion-text-center">Quantity - {(cart[index][0].quantity)}</div>
                     {stock()}
                     <IonCardContent className="ion-text-center">
-                      <button onClick={deleteCart} className="deleteBtn">Remove</button>
+                      <button onClick={deleteCart} className="deleteBtn"> - </button>
+                      <span className="orderQuantity ion-text-center">{(cart[index].quantity)}</span>
+                      <button onClick={addCart} className="deleteBtn"> + </button>
                     </IonCardContent>
                   </IonCol>
                 </IonRow>
@@ -282,7 +300,9 @@ class Cart extends Component<any, any> {
         </IonHeader>
         <IonContent>
           {!isLoaded ? (
-            <p className="LoadPad ion-text-center">Loading ...</p>
+            <div className="ion-text-center load-animation">
+              <IonSpinner name="crescent" />
+            </div>
           ) : (
               cartBody()
             )}
