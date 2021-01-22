@@ -59,7 +59,7 @@ const appPages: AppPage[] = [
   },
   {
     title: 'About',
-    url: '/page/About',
+    url: '/page/AboutUs',
     iosIcon: trashOutline,
     mdIcon: informationCircle
   },

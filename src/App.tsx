@@ -8,6 +8,7 @@ import Landing from './pages/landing';
 import SignUp from './pages/signUp';
 import Profile from './pages/profile';
 import Order from "./pages/order";
+import AboutUs from "./pages/aboutUs";
 import OrderDetails from "./pages/orderMore"
 import React, { useEffect } from 'react';
 import { IonApp, IonRouterOutlet, IonSplitPane } from '@ionic/react';
@@ -77,6 +78,7 @@ const App: React.FC = () => {
             <Route path="/page/Cart" component={Cart} exact />
             <Route path="/page/Orders" component={Order} exact />
             <Route path="/page/Profile" component={Profile} exact />
+            <Route path="/page/AboutUs" component={AboutUs} exact />
             <Route path="/page/loginCheck" component={loginCheck} exact />
             <Route path="/page/logOutCheck" component={logOutCheck} exact />
             <Route path="/page/Home/:category" component={Products} exact />

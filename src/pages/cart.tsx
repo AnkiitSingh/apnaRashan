@@ -94,7 +94,7 @@ class Cart extends Component<any, any> {
           const val: any = JSON.parse(local);
           const user = val.user._id;
           let transaction_id = response.razorpay_payment_id
-          cartOrder({ products, transaction_id, amount, address, user })
+          cartOrder({ transaction_id, amount, address, user })
             .then((data: any) => {
               if (data.error) {
                 console.log(data.error);
@@ -134,7 +134,7 @@ class Cart extends Component<any, any> {
       }
       else {
         event.preventDefault();
-        cartOrder({ products, transaction_id, amount, address, user })
+        cartOrder({ transaction_id, amount, address, user })
           .then((data: any) => {
             if (data.error) {
               console.log(data.error);
