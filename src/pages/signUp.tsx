@@ -101,6 +101,11 @@ const SignUp = () => {
                 <IonLabel >Currently only active in<IonText color="danger" className="pad">*</IonText></IonLabel>
                 <br />
                 <IonText >( Ranchi, Jharkhand )</IonText>
+                <br />
+                <IonLabel >By clicking submit you agree the Terms and condition
+                                <a href="page/Terms"> (click here) </a>
+                  <br />
+                </IonLabel>
               </div>
 
               <div className="ion-text-center pad">

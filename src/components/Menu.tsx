@@ -14,7 +14,7 @@ import {
 
 import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
-import { archiveOutline, bookmarks, heartOutline, cart, mailOutline, paperPlaneOutline, home, trashOutline, informationCircle, logIn, person } from 'ionicons/icons';
+import { archiveOutline, bookmarks, heartOutline, cart, mailOutline, home, informationCircle, logIn, person, informationCircleOutline, bookOutline } from 'ionicons/icons';
 import './Menu.css';
 import signout from "../auth/userSignout"
 import avatar from "../pages/assets/avatar.svg"
@@ -48,20 +48,26 @@ const appPages: AppPage[] = [
   {
     title: 'Profile',
     url: '/page/Profile',
-    iosIcon: trashOutline,
+    iosIcon: person,
     mdIcon: person
   },
   {
     title: 'Login/SignUp',
     url: '/page/Login',
-    iosIcon: paperPlaneOutline,
+    iosIcon: logIn,
     mdIcon: logIn
   },
   {
     title: 'About',
     url: '/page/AboutUs',
-    iosIcon: trashOutline,
+    iosIcon: informationCircleOutline,
     mdIcon: informationCircle
+  },
+  {
+    title: 'Policy',
+    url: '/page/Policies',
+    iosIcon: bookOutline,
+    mdIcon: bookOutline
   },
 ];
 

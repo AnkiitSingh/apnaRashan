@@ -9,6 +9,7 @@ import SignUp from './pages/signUp';
 import Profile from './pages/profile';
 import Order from "./pages/order";
 import AboutUs from "./pages/aboutUs";
+import Policy from "./pages/policy";
 import OrderDetails from "./pages/orderMore"
 import React, { useEffect } from 'react';
 import { IonApp, IonRouterOutlet, IonSplitPane } from '@ionic/react';
@@ -37,6 +38,9 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import loginCheck from './pages/loginChecker';
 import logOutCheck from './pages/logOutCheck';
+import Refund from './pages/refund';
+import Terms from './pages/terms';
+import Policies from './pages/guide';
 
 setupConfig({
   hardwareBackButton: false,
@@ -79,6 +83,10 @@ const App: React.FC = () => {
             <Route path="/page/Orders" component={Order} exact />
             <Route path="/page/Profile" component={Profile} exact />
             <Route path="/page/AboutUs" component={AboutUs} exact />
+            <Route path="/page/Policy" component={Policy} exact />
+            <Route path="/page/Policies" component={Policies} exact />
+            <Route path="/page/Refund" component={Refund} exact />
+            <Route path="/page/Terms" component={Terms} exact />
             <Route path="/page/loginCheck" component={loginCheck} exact />
             <Route path="/page/logOutCheck" component={logOutCheck} exact />
             <Route path="/page/Home/:category" component={Products} exact />

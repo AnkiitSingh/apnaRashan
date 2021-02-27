@@ -1,8 +1,8 @@
 .background4{
     background-image: url('bg.png');
-    height: 100%;
+    height: 200%;
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
     justify-content: center;
 }
 .menuBtn1{
@@ -28,7 +28,19 @@
     border-radius: 1vh;
 }
 .profile1{
-    padding-top:30%;
+    padding-top:15%;
+    padding-bottom:10%;
+}
+.profile2{
+    padding-top: 0vh;
+    background-color: white;
+    margin-left: 2vh;
+    margin-right: 2vh;
+    border-radius: 1vh;
+    text-align: justify;
+    text-justify: inter-word;
+    padding-right: 3vh;
+    font-size: 1.7vh;
 }
 .proPic{
     padding-top: 5vh;
@@ -61,7 +73,7 @@
     border-bottom:1px solid #d3cdcd;
 }
 .profBtn{
-    padding-bottom: 5vh;
+    padding-bottom: 2vh;
     border-bottom:1px solid #d3cdcd;
     margin-left: 5vh;
     margin-right: 5vh;

@@ -83,7 +83,7 @@ class Cart extends Component<any, any> {
         return
       }
       var options = {
-        "key": "rzp_test_3Lts2yoG4PNwtj", // Enter the Key ID generated from the Dashboard
+        "key": "rzp_live_1npWDszX9ITqNS", // Enter the Key ID generated from the Dashboard
         "amount": (amount * 100),
         "currency": "INR",
         "name": "Apna Rashan",
