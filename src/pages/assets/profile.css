@@ -1,6 +1,6 @@
 .background4{
     background-image: url('bg.png');
-    height: 200%;
+    height: 100%;
     background-size: cover;
     background-repeat: repeat-y;
     justify-content: center;
